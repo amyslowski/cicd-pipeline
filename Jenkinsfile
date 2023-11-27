@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('test') {
+    stage('test_var') {
       steps {
         sh 'echo "${registry}:${env.BUILD_ID}" .'
       }
