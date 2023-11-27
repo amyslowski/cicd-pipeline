@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('test_var') {
       steps {
-        sh 'echo "${env.BUILD_ID}"'
+        sh 'echo "${env.BUILD_NUMBER}"'
       }
     }
 
