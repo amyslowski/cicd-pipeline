@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('test_var') {
       steps {
-        sh 'echo "${registry}:${env.BUILD_ID}" .'
+        sh 'echo "${registry}:${env.BUILD_ID}"'
       }
     }
 
