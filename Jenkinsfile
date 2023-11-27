@@ -1,12 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage('test_var') {
-      steps {
-        sh "echo ${env.BUILD_NUMBER}"
-      }
-    }
-
     stage('checkout') {
       steps {
         script {
@@ -31,7 +25,7 @@ scripts/build.sh'''
 
     stage('docker build') {
       steps {
-        sh 'docker build -t "${registry}:${env.BUILD_ID}" .'
+        sh "docker build -t ${registry}:${env.BUILD_ID} ."
       }
     }
 
