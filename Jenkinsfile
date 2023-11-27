@@ -10,17 +10,19 @@ pipeline {
 
       }
     }
-stage('test') {
-    steps {
-      script {
-        docker.image("${registry}:${env.BUILD_ID}").inside{
-          c-> sh '/opt/scripts/test.sh'}
-        }
 
+    stage('test') {
+      steps {
+        script {
+          docker.image("${registry}:${env.BUILD_ID}").inside{
+            c-> sh './scripts/test.sh'}
+          }
+
+        }
       }
+
+    }
+    environment {
+      registry = 'amyslowski/lab'
     }
   }
-  environment {
-    registry = 'amyslowski/lab'
-  }
-}
