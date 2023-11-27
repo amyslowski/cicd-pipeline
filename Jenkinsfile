@@ -3,9 +3,16 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        git(url: 'https://github.com/amyslowski/cicd-pipeline', branch: 'master', credentialsId: 'github_ID')
+        script {
+          checkout scm
+          def customImage = docker.build("${registry}:${env.BUILD_ID}")
+        }
+
       }
     }
 
+  }
+  environment {
+    registry = 'amyslowski/lab'
   }
 }
