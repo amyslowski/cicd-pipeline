@@ -31,8 +31,8 @@ scripts/build.sh'''
     stage('Publish') {
       steps {
         script {
-          docker.withRegistry('','dockerhub_id'){
-            docker.image("${registry}:${env.BUILD_NUMBER}").push('${env.BUILD_NUMBER}')
+          docker.withRegistry('https://registry.hub.docker.com','dockerhub_id'){
+            app.push('${env.BUILD_NUMBER}')
           }
         }
 
