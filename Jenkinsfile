@@ -17,6 +17,12 @@ scripts/build.sh'''
       }
     }
 
+    stage('test') {
+      steps {
+        sh 'scripts/test.sh'
+      }
+    }
+
   }
   environment {
     registry = 'amyslowski/lab'
