@@ -25,7 +25,7 @@ scripts/build.sh'''
 
     stage('docker build') {
       steps {
-        sh "docker build -t ${registry}:${env.BUILD_ID} ."
+        sh "docker build -t ${registry}:${env.BUILD_NUMBER} ."
       }
     }
 
