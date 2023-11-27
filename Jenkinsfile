@@ -25,7 +25,7 @@ scripts/build.sh'''
 
     stage('docker build') {
       steps {
-        sh 'docker build -t app_njs'
+        sh 'docker build -t appnjs .'
       }
     }
 
