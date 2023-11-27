@@ -1,6 +1,11 @@
 pipeline {
   agent any
   stages {
+    stage('test') {
+      steps {
+        sh 'echo "${registry}:${env.BUILD_ID}" .'
+      }
+    }
     stage('checkout') {
       steps {
         script {
