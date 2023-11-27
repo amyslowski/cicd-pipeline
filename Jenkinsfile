@@ -5,15 +5,19 @@ pipeline {
       steps {
         script {
           checkout scm
-               }
+        }
 
       }
     }
-    
-    
 
+    stage('build') {
+      steps {
+        sh './scripts/build.sh'
+      }
     }
-    environment {
-      registry = 'amyslowski/lab'
-    }
+
   }
+  environment {
+    registry = 'amyslowski/lab'
+  }
+}
