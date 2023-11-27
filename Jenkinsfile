@@ -23,6 +23,12 @@ scripts/build.sh'''
       }
     }
 
+    stage('docker build') {
+      steps {
+        sh 'docker build -t app_njs'
+      }
+    }
+
   }
   environment {
     registry = 'amyslowski/lab'
