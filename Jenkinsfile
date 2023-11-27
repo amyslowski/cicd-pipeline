@@ -12,7 +12,8 @@ pipeline {
 
     stage('build') {
       steps {
-        sh 'scripts/build.sh'
+        sh '''chmod 744 scripts/build.sh
+scripts/build.sh'''
       }
     }
 
