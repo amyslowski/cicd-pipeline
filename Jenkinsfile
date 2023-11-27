@@ -6,6 +6,7 @@ pipeline {
         sh 'echo "${registry}:${env.BUILD_ID}" .'
       }
     }
+
     stage('checkout') {
       steps {
         script {
