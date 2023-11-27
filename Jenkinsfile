@@ -28,7 +28,16 @@ scripts/build.sh'''
         sh "docker build -t ${registry}:${env.BUILD_NUMBER} ."
       }
     }
+    stage('Publish') {
+      steps {
+        script {
+          docker.withRegistry('','dockerhub_id'){
+            docker.image("${registry}:${env.BUILD_NUMBER}").push('${env.BUILD_NUMBER}')
+          }
+        }
 
+      }
+    }
   }
   environment {
     registry = 'amyslowski/lab'
