@@ -31,10 +31,13 @@ scripts/build.sh'''
 
     stage('Publish') {
       steps {
-        sh "docker push ${registry}:${BUILD_NUMBER}"
+        script {
+          docker.withRegistry('','dockerhub_id'){
+          docker.image("${registry}:${env.BUILD_NUMBER}").push('${env.BUILD_NUMBER}')
+          }
       }
     }
-
+    }
   }
   environment {
     registry = 'amyslowski/lab'
