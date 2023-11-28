@@ -31,12 +31,8 @@ scripts/build.sh'''
 
     stage('Publish') {
       steps {
-        script {
-          docker.withRegistry('','dockerhub_id'){
-            docker.image("${registry}:${env.BUILD_NUMBER}").push('${env.BUILD_NUMBER}')
-          }
-        }
-
+        sh '''docker login -u amyslowski -p ${dockerhub_secret}
+docker push ${registry}:${BUILD_NUMBER}'''
       }
     }
 
