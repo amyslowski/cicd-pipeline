@@ -31,8 +31,7 @@ scripts/build.sh'''
 
     stage('Publish') {
       steps {
-        sh '''docker login -u amyslowski -p ${dockerhub_secret}
-docker push ${registry}:${BUILD_NUMBER}'''
+        sh "docker login -u amyslowski -p ${dockerhub_secret}||docker push ${registry}:${BUILD_NUMBER}"
       }
     }
 
